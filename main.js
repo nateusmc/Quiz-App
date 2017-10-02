@@ -1,12 +1,10 @@
 'use strict';
+
 let num = 0;
 let count = 0;
 let count_limit = 5;
 let score = 0;
 let STORE = [];
-
-
-//Questions on Facts about Texas
 
 let quiz_questions = {
   1: {
@@ -120,3 +118,113 @@ let quiz_questions = {
   },
 
 };
+
+function newGame(){
+  num = 0;
+  count = 0;
+  score = 0;
+  STORE = [];
+  console.log('game reset!');
+}
+function findQuestion() {
+  pickQuestion();
+  while (wasAsked()) {
+    pickQuestion();
+  }
+}
+function pickQuestion(){
+  let limit = Object.keys(quiz_questions).length;
+  num = Math.floor((Math.random() * limit) + 1);
+}
+function wasAsked() {
+  let result = false;
+  for (let i=0;i<=STORE.length;i++){
+    if (num == STORE[i]) {
+      result = true;
+    }
+  }
+  return result;
+}
+function loadQuestion() {
+  STORE.push(num);
+  $('#text').html(quiz_questions[num]['question']);
+  $('#option-1').html(quiz_questions[num]['options'][1]);
+  $('#option-2').html(quiz_questions[num]['options'][2]);
+  $('#option-3').html(quiz_questions[num]['options'][3]);
+  $('#option-4').html(quiz_questions[num]['options'][4]);
+  updateScore();
+  count++;
+  $('#progress').text(count+'/'+count_limit);
+}
+function correct(user_answer) {
+  if (user_answer == quiz_questions[num]['answer']) {
+    return true;
+  } else {
+    return false;
+  }
+}
+function updateScore(){
+  $('.score').text(score);
+}
+
+$(document).ready(function() {
+    
+  $('#start-button').click(function() {       
+    $('#start').fadeOut(500, function() {
+      newGame();
+      findQuestion();
+      loadQuestion();
+      $('#quiz').fadeIn(500);    
+    });
+  });
+
+  $('#answer-button').click(function() {
+    let user_answer = $('input:radio[name=answer]:checked').val();
+    console.log(user_answer);
+    if (!user_answer) {
+      console.log('nothing selected');
+      alert('Please make a selection!');
+    } else {
+      console.log('selection made');    
+      if (correct(user_answer)) {
+        $('#quiz').fadeOut(500, function() {
+          score++;
+          updateScore();
+          $('#right').fadeIn(500);    
+        });
+      } else {
+        $('#quiz').fadeOut(500, function() {
+          $('#wrong').fadeIn(500);
+        });
+      }
+    }
+  });
+
+  $('.continue-button').click(function() {       
+    $('#right').fadeOut(500, function() {
+      $('#wrong').fadeOut(500, function() {
+        if (count >= count_limit) {
+          updateScore();
+          $('#final-score').fadeIn(500);
+        } else {
+          findQuestion();
+          loadQuestion();
+          $('form input').prop('checked', false);
+          $('#quiz').fadeIn(500);
+        }
+      });
+    });
+  });
+
+  $('#start-over').click(function() {       
+    $('#final-score').fadeOut(500, function() {
+      newGame();
+      findQuestion();
+      loadQuestion();
+      $('form input').prop('checked', false);
+      $('#quiz').fadeIn(500);    
+    });
+  });
+
+
+});

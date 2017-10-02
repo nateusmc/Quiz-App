@@ -1,76 +1,62 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <link rel='stylesheet' type='text/css' href='main.css'>
-  <title>Test your Knowledge of Texas Facts</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Test Your Knowledge of Texas Facts</title>
 </head>
 <body>
-
 <header>
-  <div class="content">
-      <h1>Test your Knowledge of Texas Facts</h1>
-  </div>
+    <div>
+        <h1>Test Your Knowledge of Texas Facts</h1>
+    </div>
 </header>
-
 <main id="main" role="main">
-    <div class="content"> 
+    <div> 
 
-<section id="quiz">
-  <div id="stats">
-  <div id="stats-score">SCORE: <span class="score">0</span></div>
-  <div id="stats-progress">QUESTION: <span id="progress">1/5</span></div>
-  <hr class="clearfix">
-  </div>
+        <section id="quiz">
+            <div id="statistics">
+                <div id="statistics-score">Score: <span class="score">0</span></div>
+                <div id="statistics-progress">Question: <span id="progress">1/5</span></div>
+            </div>
+            <div id="question">
+                <p id="text">[question text goes here]</p>
+                <form>
+                <div><input type="radio" name="answer" value="1"> <span id="option-1">[option one]</span> </div>
+                <div><input type="radio" name="answer" value="2"> <span id="option-2">[option two]</span> </div>
+                <div><input type="radio" name="answer" value="3"> <span id="option-3">[option three]</span> </div>
+                <div><input type="radio" name="answer" value="4"> <span id="option-4">[option four]</span> </div>
+                </form>
+                <button id="answer-button">Submit Answer</button>    
+            </div>
+        </section>
 
-  <div id="question">
-    <p id="text">[question text goes here]</p>
-      <form>
-        <div><input type="radio" name="ans" value="1"> <span id="option-1">[option one]</span> </div>
-        <div><input type="radio" name="ans" value="2"> <span id="option-2">[option two]</span> </div>
-        <div><input type="radio" name="ans" value="3"> <span id="option-3">[option three]</span> </div>
-        <div><input type="radio" name="ans" value="4"> <span id="option-4">[option four]</span> </div>
-        <div><input type="radio" name="ans" value="5"> <span id="option-5">[option five]</span> </div>
-      </form>
-        <button id="answer-btn">Submit Answer</button>    
-  </div>
-</section>
+        <section id="start">
+            <button id="start-button">START QUIZ</button>
+        </section>    
 
-<section id="start">
-            <button id="start-btn">START QUIZ</button>
-        </section>  
+        <section id="right" class="pop-up">
+            <h2>Correct!<br>+1 Point!</h2>
+            <p>You now have <span class="score">0</span> point(s)</p>
+            <br>
+            <p><button class="continue-button">Continue</button></p>
+        </section>
 
-<section id="correct" class="pop-up">
-    <h2>Correct!<br>+1</h2>
-      <p>Congratulations, you now have <span class="score">0</span> point(s)!</p>
-      <br>
-      <p><button class="cont-btn">Continue</button></p>
-</section>
+        <section id="wrong" class="pop-up">
+            <h2>Incorrect!</h2>
+            <p>No point accumulated this time!</p>
+            <br>
+            <p><button class="continue-button">Continue</button></p>
+        </section>
 
-
-<section id="wrong" class="pop-up">
-  <h2>Wrong!</h2>
-  <p>Incorrect; better luck next time!</p>
-  <br>
-  <p><button class="cont-btn">Continue</button></p>
-</section>
-
-<section id="final" class="pop-up">
-    <h2>Final</h2>
-    <p>You got a score of: <span class="score">[0]</span></p>
-    <br>
-    <p><button id="start-over">Try Again</button></p>
+        <section id="final-score" class="pop-up">
+            <h2>Final Score: <span class="score">[0]</span></h2>
+            <br>
+            <p><button id="start-over">Try Again</button></p>
+        </section>
+    </div>
 </main>
-</section>
-
-
-
-  <script type='text/javascript' src='main.js'></script>
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
