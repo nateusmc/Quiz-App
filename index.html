@@ -8,6 +8,72 @@
   <title>Quiz App</title>
 </head>
 <body>
+
+
+
+<header>
+  <div class="content">
+      <h1>The Quiz App</h1>
+  </div>
+</header>
+
+<main id="main" role="main">
+    <div class="content"> 
+
+<section id="quiz">
+  <div id="stats">
+  <div id="stats-score">SCORE: <span class="score">0</span></div>
+  <div id="stats-progress">QUESTION: <span id="progress">1/5</span></div>
+  <hr class="clearfix">
+  </div>
+
+  <div id="question">
+  <div id="icon"><i class="fa fa-bolt"></i></div>
+    <p id="text">[question text goes here]</p>
+      <form>
+        <div><input type="radio" name="ans" value="1"> <span id="option-1">[option one]</span> </div>
+        <div><input type="radio" name="ans" value="2"> <span id="option-2">[option two]</span> </div>
+        <div><input type="radio" name="ans" value="3"> <span id="option-3">[option three]</span> </div>
+        <div><input type="radio" name="ans" value="4"> <span id="option-4">[option four]</span> </div>
+        <div><input type="radio" name="ans" value="5"> <span id="option-5">[option five]</span> </div>
+      </form>
+        <button id="answer-btn">Submit Answer</button>    
+  </div>
+</section>
+
+<section id="start">
+            <button id="start-btn">START QUIZ</button>
+        </section>  
+
+<section id="correct" class="pop-up">
+    <h2>Correct!<br>+1</h2>
+      <p>Congratulations, you now have <span class="score">0</span> point(s)!</p>
+      <br>
+      <p><button class="cont-btn">Continue</button></p>
+</section>
+
+
+<section id="wrong" class="pop-up">
+  <h2>Wrong!</h2>
+  <p>Incorrect; better luck next time!</p>
+  <br>
+  <p><button class="cont-btn">Continue</button></p>
+</section>
+
+<section id="final" class="pop-up">
+    <h2>Final</h2>
+    <p>You got a score of: <span class="score">[0]</span></p>
+    <br>
+    <p><button id="start-over">Try Again</button></p>
+</main>
+</section>
+
+
+
   <script type='text/javascript' src='main.js'></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 </body>
 </html>
