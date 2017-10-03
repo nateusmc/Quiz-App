@@ -1,0 +1,111 @@
+html {
+    color: #000000;
+    font-size: 62.5%;
+}
+body {
+    font-size: 10px; 
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+h1 {
+    padding-top: 200px;
+    font-size: 3rem;
+}
+
+main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+section {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+button {
+    background-color: #FFFFFF;
+    padding: 10px;
+    border: 2px solid #000;
+    color: #000000;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+#quiz {
+    display: none;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* statistics */
+
+#statistics {
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    padding: 15px;  
+    padding-bottom: 30px;
+    font-size: 1.8rem;
+}
+#statistics #statistics-score{
+    float: left;
+    letter-spacing: 0.2rem;
+}
+#statistics #statistics-progress {
+    float: right;
+    letter-spacing: 0.2rem;
+}
+#statistics #score, #statistics #progress {
+    color: #000000;    
+} 
+
+/* Questions */
+
+#question {
+    border: 1px solid #000000;
+    padding: 3% 10% 3% 10%;    
+    font-size: 2rem;
+}
+
+#question form {
+    margin-left: 41%;
+    text-align: left;
+}
+
+.pop-up {
+    display: none;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4rem;
+    font-size: 2rem;    
+}
+#right {
+    border: 1px solid #000000;
+}
+#right h2 {
+    color: #000000;
+    font-size: 2.2rem;
+}
+#wrong {
+    border: 1px solid #000000;
+}
+#wrong h2 {
+    color: #000000;
+    font-size: 2.2rem;
+}
+#final-score {
+    border: 1px solid #000000;
+}
+#final-score h2 {
+    font-size: 3rem;
+}
+#final-score .score, #final-score {
+    font-size: 3rem;
+    color: #000000;
+    padding-left: 1rem;
+}
