@@ -6,7 +6,7 @@ let count_limit = 5;
 let score = 0;
 let STORE = [];
 
-let quiz_questions = {
+let quizQuestions = {
   1: {
     'question': 'How many natural lakes are there in Texas?',
     'options': {
@@ -133,7 +133,7 @@ function findQuestion() {
   }
 }
 function pickQuestion(){
-  let limit = Object.keys(quiz_questions).length;
+  let limit = Object.keys(quizQuestions).length;
   num = Math.floor((Math.random() * limit) + 1);
 }
 function wasAsked() {
@@ -147,23 +147,23 @@ function wasAsked() {
 }
 function loadQuestion() {
   STORE.push(num);
-  $('#text').html(quiz_questions[num]['question']);
-  $('#option-1').html(quiz_questions[num]['options'][1]);
-  $('#option-2').html(quiz_questions[num]['options'][2]);
-  $('#option-3').html(quiz_questions[num]['options'][3]);
-  $('#option-4').html(quiz_questions[num]['options'][4]);
-  updateScore();
+  $('#text').html(quizQuestions[num]['question']);
+  $('#option-1').html(quizQuestions[num]['options'][1]);
+  $('#option-2').html(quizQuestions[num]['options'][2]);
+  $('#option-3').html(quizQuestions[num]['options'][3]);
+  $('#option-4').html(quizQuestions[num]['options'][4]);
+  renderScore();
   count++;
   $('#progress').text(count+'/'+count_limit);
 }
 function correct(user_answer) {
-  if (user_answer == quiz_questions[num]['answer']) {
+  if (user_answer == quizQuestions[num]['answer']) {
     return true;
   } else {
     return false;
   }
 }
-function updateScore(){
+function renderScore(){
   $('.score').text(score);
 }
 
@@ -189,7 +189,7 @@ $(document).ready(function() {
       if (correct(user_answer)) {
         $('#quiz').fadeOut(500, function() {
           score++;
-          updateScore();
+          renderScore();
           $('#right').fadeIn(500);    
         });
       } else {
@@ -204,7 +204,7 @@ $(document).ready(function() {
     $('#right').fadeOut(500, function() {
       $('#wrong').fadeOut(500, function() {
         if (count >= count_limit) {
-          updateScore();
+          renderScore();
           $('#final-score').fadeIn(500);
         } else {
           findQuestion();
